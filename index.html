@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <title>For Nehu ❤️</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+      * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+      }
+
+      body {
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         overflow-x: hidden;
+         background: #000;
+      }
+
+      /* Floating Hearts Background */
+      .hearts-bg {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         pointer-events: none;
+         z-index: 1;
+         overflow: hidden;
+      }
+
+      .heart {
+         position: absolute;
+         font-size: 20px;
+         color: rgba(255, 77, 109, 0.6);
+         animation: float 10s infinite;
+      }
+
+      @keyframes float {
+         0% {
+            transform: translateY(100vh) rotate(0deg);
+            opacity: 0;
+         }
+
+         10% {
+            opacity: 1;
+         }
+
+         90% {
+            opacity: 1;
+         }
+
+         100% {
+            transform: translateY(-100vh) rotate(360deg);
+            opacity: 0;
+         }
+      }
+
+      /* Interactive Screen (for all yes/no questions) */
+      .interactive-screen {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100vh;
+         background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         z-index: 1000;
+         transition: opacity 0.5s, transform 0.5s;
+      }
+
+      .interactive-screen.hide {
+         opacity: 0;
+         transform: scale(0.8);
+         pointer-events: none;
+      }
+
+      .card {
+         background: white;
+         padding: 40px 30px;
+         border-radius: 25px;
+         text-align: center;
+         box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+         width: 90%;
+         max-width: 450px;
+         position: relative;
+         animation: cardPulse 2s infinite;
+      }
+
+      @keyframes cardPulse {
+
+         0%,
+         100% {
+            transform: scale(1);
+         }
+
+         50% {
+            transform: scale(1.02);
+         }
+      }
+
+      .card h1 {
+         color: #ff4d6d;
+         margin-bottom: 20px;
+         font-size: 26px;
+         line-height: 1.4;
+      }
+
+      .card p {
+         color: #666;
+         margin-bottom: 30px;
+         font-size: 16px;
+         line-height: 1.6;
+      }
+
+      .cute-message {
+         color: #ff4d6d;
+         font-weight: bold;
+         font-size: 18px;
+         margin-bottom: 25px;
+         min-height: 30px;
+         animation: messagePopIn 0.3s;
+      }
+
+      @keyframes messagePopIn {
+         0% {
+            transform: scale(0.8);
+            opacity: 0;
+         }
+
+         100% {
+            transform: scale(1);
+            opacity: 1;
+         }
+      }
+
+      .button-container {
+         display: flex;
+         gap: 15px;
+         justify-content: center;
+         flex-wrap: wrap;
+         position: relative;
+         min-height: 60px;
+      }
+
+      button {
+         padding: 15px 30px;
+         font-size: 18px;
+         border: none;
+         border-radius: 30px;
+         cursor: pointer;
+         transition: all 0.3s;
+         font-weight: bold;
+      }
+
+      .yes {
+         background: linear-gradient(135deg, #ff4d6d, #ff758c);
+         color: white;
+         box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+         z-index: 10;
+      }
+
+      .yes:hover {
+         transform: translateY(-2px);
+         box-shadow: 0 8px 20px rgba(255, 77, 109, 0.6);
+      }
+
+      .no {
+         background: #ddd;
+         position: fixed;
+         transition: all 0.2s ease;
+         z-index: 5;
+      }
+
+      .no:hover {
+         background: #ccc;
+      }
+
+      /* Main Content */
+      .main-content {
+         display: none;
+         min-height: 100vh;
+         background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+         position: relative;
+         z-index: 2;
+      }
+
+      .main-content.show {
+         display: block;
+         animation: fadeIn 1s;
+      }
+
+      @keyframes fadeIn {
+         from {
+            opacity: 0;
+         }
+
+         to {
+            opacity: 1;
+         }
+      }
+
+      /* Header Section */
+      .header {
+         text-align: center;
+         padding: 60px 20px 40px;
+         color: white;
+      }
+
+      .header h1 {
+         font-size: 48px;
+         margin-bottom: 10px;
+         background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+         animation: glow 2s ease-in-out infinite;
+      }
+
+      @keyframes glow {
+
+         0%,
+         100% {
+            filter: brightness(1);
+         }
+
+         50% {
+            filter: brightness(1.3);
+         }
+      }
+
+      .header p {
+         font-size: 20px;
+         color: #fad0c4;
+         margin-top: 10px;
+      }
+
+      .date-badge {
+         display: inline-block;
+         background: rgba(255, 154, 158, 0.2);
+         padding: 10px 25px;
+         border-radius: 20px;
+         margin-top: 20px;
+         border: 2px solid rgba(255, 154, 158, 0.4);
+      }
+
+      /* Timeline Section */
+      .timeline {
+         max-width: 800px;
+         margin: 0 auto;
+         padding: 40px 20px;
+      }
+
+      .timeline-item {
+         display: flex;
+         gap: 30px;
+         margin-bottom: 60px;
+         opacity: 0;
+         animation: slideIn 0.8s forwards;
+      }
+
+      .timeline-item:nth-child(even) {
+         flex-direction: row-reverse;
+      }
+
+      @keyframes slideIn {
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+
+      .timeline-item {
+         transform: translateY(30px);
+      }
+
+      .timeline-date {
+         flex-shrink: 0;
+         width: 120px;
+         text-align: center;
+      }
+
+      .timeline-date .date-circle {
+         width: 80px;
+         height: 80px;
+         background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-weight: bold;
+         color: white;
+         margin: 0 auto 10px;
+         box-shadow: 0 5px 20px rgba(255, 154, 158, 0.4);
+      }
+
+      .timeline-date p {
+         color: #fad0c4;
+         font-size: 14px;
+      }
+
+      .timeline-content {
+         background: rgba(255, 255, 255, 0.05);
+         backdrop-filter: blur(10px);
+         padding: 25px;
+         border-radius: 20px;
+         flex: 1;
+         border: 1px solid rgba(255, 154, 158, 0.2);
+         transition: all 0.3s;
+      }
+
+      .timeline-content:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 10px 30px rgba(255, 154, 158, 0.3);
+         border-color: rgba(255, 154, 158, 0.5);
+      }
+
+      .timeline-content h3 {
+         color: #ff9a9e;
+         margin-bottom: 15px;
+         font-size: 22px;
+      }
+
+      .timeline-content p {
+         color: #e0e0e0;
+         line-height: 1.6;
+         margin-bottom: 15px;
+      }
+
+      /* Photo Gallery */
+      .photo-gallery {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+         gap: 15px;
+         margin-top: 20px;
+      }
+
+      .photo-placeholder {
+         width: 100%;
+         aspect-ratio: 1;
+         background: linear-gradient(135deg, rgba(255, 154, 158, 0.3), rgba(250, 208, 196, 0.3));
+         border-radius: 15px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         color: #fad0c4;
+         font-size: 14px;
+         text-align: center;
+         padding: 10px;
+         border: 2px dashed rgba(255, 154, 158, 0.4);
+         transition: all 0.3s;
+         cursor: pointer;
+      }
+
+      .photo-placeholder:hover {
+         transform: scale(1.05);
+         border-color: rgba(255, 154, 158, 0.8);
+      }
+
+      .photo-placeholder img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         border-radius: 13px;
+      }
+
+      /* Message Section */
+      .message-section {
+         max-width: 700px;
+         margin: 60px auto;
+         padding: 40px 20px;
+         text-align: center;
+      }
+
+      .love-letter {
+         background: rgba(255, 255, 255, 0.95);
+         padding: 40px;
+         border-radius: 20px;
+         box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+         position: relative;
+      }
+
+      .love-letter::before {
+         content: '💕';
+         position: absolute;
+         top: -20px;
+         left: 50%;
+         transform: translateX(-50%);
+         font-size: 40px;
+      }
+
+      .love-letter h2 {
+         color: #ff4d6d;
+         margin-bottom: 25px;
+         font-size: 28px;
+      }
+
+      .love-letter p {
+         color: #333;
+         line-height: 1.8;
+         margin-bottom: 15px;
+         font-size: 16px;
+      }
+
+      .signature {
+         margin-top: 30px;
+         font-style: italic;
+         color: #ff4d6d;
+         font-size: 20px;
+      }
+
+      /* Video Section */
+      .video-section {
+         max-width: 700px;
+         margin: 60px auto;
+         padding: 40px 20px;
+         text-align: center;
+      }
+
+      .video-card {
+         background: rgba(255, 255, 255, 0.05);
+         backdrop-filter: blur(10px);
+         padding: 30px;
+         border-radius: 20px;
+         border: 1px solid rgba(255, 154, 158, 0.2);
+      }
+
+      .video-card h2 {
+         color: #ff9a9e;
+         margin-bottom: 20px;
+         font-size: 26px;
+      }
+
+      .video-card p {
+         color: #e0e0e0;
+         line-height: 1.6;
+         font-size: 16px;
+      }
+
+      /* Music Control */
+      .music-control {
+         position: fixed;
+         bottom: 30px;
+         right: 30px;
+         z-index: 100;
+         background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+         width: 60px;
+         height: 60px;
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         cursor: pointer;
+         box-shadow: 0 5px 20px rgba(255, 77, 109, 0.4);
+         transition: all 0.3s;
+      }
+
+      .music-control:hover {
+         transform: scale(1.1);
+      }
+
+      .music-control.playing {
+         animation: spin 3s linear infinite;
+      }
+
+      @keyframes spin {
+         from {
+            transform: rotate(0deg);
+         }
+
+         to {
+            transform: rotate(360deg);
+         }
+      }
+
+      .music-control::before {
+         content: '🎵';
+         font-size: 24px;
+      }
+
+      /* Footer */
+      .footer {
+         text-align: center;
+         padding: 40px 20px;
+         color: #fad0c4;
+      }
+
+      .footer p {
+         font-size: 18px;
+         margin: 10px 0;
+      }
+
+      /* Responsive */
+      @media (max-width: 600px) {
+         .header h1 {
+            font-size: 36px;
+         }
+
+         .timeline-item {
+            flex-direction: column !important;
+            gap: 15px;
+         }
+
+         .timeline-date {
+            width: 100%;
+         }
+
+         .love-letter {
+            padding: 25px;
+         }
+
+         .card h1 {
+            font-size: 22px;
+         }
+      }
+   </style>
+</head>
+
+<body>
+
+   <!-- Floating Hearts Background -->
+   <div class="hearts-bg" id="heartsContainer"></div>
+
+   <!-- Screen 1: Valentine Question -->
+   <div class="interactive-screen" id="screen1">
+      <div class="card">
+         <h1>💕 Nehu, will you be my Valentine? 💕</h1>
+         <p>Yaad hai pagli!!! Aaj k tu pehli baar mujhse milne aayi thi...</p>
+         <p>Kaise mujhe tum mil gaye, Kismat pr aaye na yakeen 🤨🤨 </p>
+         <div class="cute-message" id="message1"></div>
+         <div class="button-container">
+            <button class="yes" onclick="nextScreen(1)">Yes! 💖</button>
+            <button class="no" id="noBtn1">No</button>
+         </div>
+      </div>
+   </div>
+
+   <!-- Screen 2: Pictures Question -->
+   <div class="interactive-screen" id="screen2" style="display: none;">
+      <div class="card">
+         <h1>🖼️ Yaad hai na kya kya kiya tha humne uss din?</h1>
+         <p>February 4, 2023 ✨</p>
+         <p> Zindagi sitaar ho gayi, Rimjhim malhaar ho gayi </p>
+         <div class="cute-message" id="message2"></div>
+         <div class="button-container">
+            <button class="yes" onclick="nextScreen(2)">Yes! Show me! 📸</button>
+            <button class="no" id="noBtn2">No</button>
+         </div>
+      </div>
+   </div>
+
+   <!-- Screen 3: Video Question -->
+   <div class="interactive-screen" id="screen3" style="display: none;">
+      <div class="card">
+         <h1>🎬 Aur wo video to bhool hi gayi hogi Jo humne saath mein dekha tha</h1>
+         <p>Jab se tum ho mile , Maano dil hain khile </p>
+         <div class="cute-message" id="message3"></div>
+         <div class="button-container">
+            <button class="yes" onclick="nextScreen(3)">Of course! 🎥</button>
+            <button class="no" id="noBtn3">No</button>
+         </div>
+      </div>
+   </div>
+
+   <!-- Screen 4: Personal Message Question -->
+   <div class="interactive-screen" id="screen4" style="display: none;">
+      <div class="card">
+         <h1>💌 I wrote something special for you...</h1>
+         <p>Would you like to read what's in my heart? 💕</p>
+         <div class="cute-message" id="message4"></div>
+         <div class="button-container">
+            <button class="yes" onclick="nextScreen(4)">Yes! I'd love to! 💝</button>
+            <button class="no" id="noBtn4">No</button>
+         </div>
+      </div>
+   </div>
+
+   <!-- Screen 5: Music Question -->
+   <div class="interactive-screen" id="screen5" style="display: none;">
+      <div class="card">
+         <h1>Aur tu wo bhi bhool gayi na 🤨🤨🤨</h1>
+         <p>woo kamar pr haath....... 💕</p>
+         <div class="cute-message" id="message5"></div>
+         <div class="button-container">
+            <button class="yes" onclick="nextScreen(5)">Yes! Play it! 🎶</button>
+            <button class="no" id="noBtn5">No</button>
+         </div>
+      </div>
+   </div>
+
+   <!-- Main Content -->
+   <div class="main-content" id="mainContent">
+      <!-- Header -->
+      <div class="header">
+         <h1>✨ Three Beautiful Years ✨</h1>
+         <p>Meri poori zindagi ke sabse haseen pal</p>
+         <div class="date-badge">
+            <strong>February 4, 2023 - February 4, 2026</strong>
+         </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="timeline">
+         <!-- First Meeting -->
+         <div class="timeline-item" style="animation-delay: 0.2s">
+            <div class="timeline-date">
+               <div class="date-circle">
+                  <div>Feb 4<br>2023</div>
+               </div>
+               <p>The Beginning</p>
+            </div>
+            <div class="timeline-content">
+               <h3>💫 Tumse pehli si mulaaqaat</h3>
+               <p>Aaj hi ke din 3 saal pehle ek thodi paagal ladki se mila tha</p>
+               <p>Jiske liye aaj poora paagal ho chuka hoon</p>
+               <div class="photo-gallery">
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/wGnb1Cb/20230204-192630.jpg"
+                        alt="Feb 4, 2023"></div>
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/7JvTRNRr/20230710-112032.jpg"
+                        alt="Special moment"></div>
+                  <div class="photo-placeholder"><img
+                        src="https://i.ibb.co/tMdzFJx5/Screenshot-20230528-211155-Telegram.jpg" alt="Special moment">
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- Special Memories -->
+         <div class="timeline-item" style="animation-delay: 0.4s">
+            <div class="timeline-date">
+               <div class="date-circle">
+                  <div>Our<br>Journey</div>
+               </div>
+               <p>Memories</p>
+            </div>
+            <div class="timeline-content">
+               <h3>🌸 Wo haseen lamhe</h3>
+               <p>Tumhare saath har lamhaat moti jaisa hota hai jb saari mulaakatein dekho to zindagi kisi khoobsurat
+                  haar jaisi lagti jisme hazaaron moti chamak yaad banke chamkte hain</p>
+               <div class="photo-gallery">
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/TxjRZb1P/20230315-172158.jpg"
+                        alt="Favorite memory together"></div>
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/6ckZG5Kf/20230814-130438.jpg"
+                        alt="Favorite memory together"></div>
+                  <div class="photo-placeholder"><img
+                        src="https://i.ibb.co/QvKG958g/photo-74-18-03-2023-16-23-37-thumb-1.jpg" alt="A happy moment">
+                  </div>
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/RTxDMfHj/photo-75-18-03-2023-16-25-31.jpg"
+                        alt="A happy moment"></div>
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/b5MYhCM2/20230615-111229.jpg"
+                        alt="Another cherished time"></div>
+               </div>
+            </div>
+         </div>
+
+         <!-- Today -->
+         <div class="timeline-item" style="animation-delay: 0.6s">
+            <div class="timeline-date">
+               <div class="date-circle">
+                  <div>Feb 4<br>2026</div>
+               </div>
+               <p>Today</p>
+            </div>
+            <div class="timeline-content">
+               <h3>💖 Mera saara jahaan </h3>
+               <p> Har ek chalti huyi saans , dhadkti huyi dhadkan har ek ahsaas tumse hokar guzarta hai Nehu.</p>
+               <div class="photo-gallery">
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/PsQXwVWH/photo-2023-11-17-19-29-56.jpg"
+                        alt="Another cherished time"></div>
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/tTmqyZZK/20230801-121843-jpg-thumb.jpg"
+                        alt="Another cherished time"></div>
+                  <div class="photo-placeholder"><img
+                        src="https://i.ibb.co/Jj2tf2MC/Screenshot-20230613-003531-Whats-App.jpg"
+                        alt="Your smile that lights up my world"></div>
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/s990Z6KG/photo-2023-11-17-23-15-51.jpg"
+                        alt="Your smile that lights up my world"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Video Section -->
+      <div class="video-section">
+         <div class="video-card">
+            <h2>🎬 Yaad hai pagli?</h2>
+            <p> Hum ye gaana sun rahe the aur sharmaa rahe the (as always tu jyada) aur pata hai isme main hum dono ko
+               imagine krke ghar se aaya tha 💕</p>
+
+            <!-- Video Player -->
+            <div
+               style="margin: 30px 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+               <iframe width="100%" height="315" src="https://www.youtube.com/embed/PzmNssVLcLQ"
+                  title="Dil Bechara song" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen style="border-radius: 15px;">
+               </iframe>
+            </div>
+
+            <!-- Memory Photo from that Video -->
+            <div style="margin-top: 30px;">
+               <h3 style="color: #ff9a9e; margin-bottom: 15px; font-size: 20px;">📸 Aur achanak se, Ye scene 👀</h3>
+               <p> Ab dekh lo ab screen pr haath nahi rakhunga</p>
+               <p>Umar ke saal kitne hain , Gin-Gin kr kya krna???</p>
+               <p>Beet jaayein na , Ginti mein ye warna !!!!</p>
+               <div class="photo-placeholder">
+                  <img src="https://i.ibb.co/rGDSK0GW/Screenshot-2026-02-04-200926.png"
+                     alt="Ab main Screen pr Haath nahi rakhunga">
+               </div>
+               <p style="margin-top: 15px; color: #fad0c4; font-style: italic;">
+                  Meri khushi meri khushi ki khushiyon mein hi thehri hui hai 💕
+               </p>
+            </div>
+         </div>
+      </div>
+
+      <!-- Personal Message -->
+      <div class="message-section">
+         <div class="love-letter">
+            <h2>Meri Nehu,</h2>
+
+            <p>Aaj se theek 3 saal pehle, taqdeer ne humein milaya tha... aur uss ek mulaqat ne meri zindagi ke maayne
+               badal diye. Wo sirf ek taareekh nahi thi, wo uss khoobsurat safar ka aagaaz tha jiske liye shayad main
+               hamesha se intezaar kar raha tha.</p>
+
+            <p>Tumhara aana meri life mein bilkul waisa tha jaise <b>Javed </b> sahab ne likha hai:</p>
+
+            <p><i>"Tumko dekha toh yeh khayal aaya,<br>
+                  Zindagi dhoop tum ghana saaya.<br>
+                  Aaj phir dil ne ek tamanna ki,<br>
+                  Aaj phir dil ko humne samjhaya."</i></p>
+
+            <p>In 3 saalon mein tumne mere soonepan ko apni hansi se bhar diya hai. Jab bhi main thaka-haara mehsoos
+               karta hoon, tumhara bas hona hi kaafi hota hai. Tumhari wo khushi mere liye kisi marham se kam nahi.</p>
+
+            <p>Tumhare liye meri feelings ko <b>Faiz </b> ki ye lines sabse behtar bayan karti hain:</p>
+
+            <p><i>"Raat yun dil mein teri khoyi hui yaad aayi,<br>
+                  Jaise veerane mein chupke se bahaar aa jaye,<br>
+                  Jaise sehraon mein haule se chale baad-e-naseem,<br>
+                  Jaise bimaar ko be-wajah qaraar aa jaye."</i></p>
+
+            <p>Humne saath mein jo waqt bitaya hai, wo mere jeene ka sahara hai. Wo humari baatein, wo bina kahe baatein
+               samajh lena, aur wo pyaar jo har guzarate din ke saath gehra hota gaya. Meri har kami ko tumne apni
+               achhaiyon se pura kiya hai. </p>
+
+            <p>Thank you Nehu... meri zid, mera gussa aur meri pareshaniyan jhelne ke liye. Thank you mujhe ye ehsaas
+               dilane ke liye ki main bhi pyaar kiye jaane ke qabil hoon.</p>
+
+            <p>Thank you mujhe uthak baithak karwaane ke liye 😫😫😫</p>
+
+            <p style="font-weight: bold; font-style: italic;">
+               Hai Dil Khamakhaa Pareshan Badaa<br>
+               Isko Koi Samjha De Zaraa<br>
+               Ishq Mein Fanaa Ho Jaana<br>
+               Hai Dastoor Yahi<br>
+               "Jisme Ho Sabar Ki Fitrat"<br>
+               Wo Ishq Hi Nahin!
+            </p>
+
+            <p class="signature">Sirf aur Sirf Tumhara,<br>With all my love 💕</p>
+         </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+         <p>✨ Happy 3rd Anniversary, Baby! ✨</p>
+         <p>💕 February 4, 2026 💕</p>
+         <p style="font-weight: bold; font-style: italic;"> JAB TAK JAHAN MEIN MERA NAAM HAI</p>
+         <p style="font-weight: bold; font-style: italic;"> TAB TAK MERE NAAM TU</p>
+      </div>
+   </div>
+
+   <!-- Music Control -->
+   <div class="music-control" id="musicControl" onclick="toggleMusic()" title="Click to play music"
+      style="display: none;"></div>
+
+   <!-- Hidden Audio Element -->
+   <audio id="backgroundMusic" loop>
+      <source src="Mere Naam Tu (PenduJatt.Com.Se) (1).mp3" type="audio/mpeg">
+   </audio>
+
+   <script>
+      // Cute messages for each screen
+      const messages = {
+         1: [
+            "Tujhe pata hai na mujhe NO sunna nahi pasand!!! 🥺",
+            "Phir se soch le mana kr rahi na! 💭",
+            "Agar tune na kaha!!! 😢",
+            "Chal chal jaldi haan bol! 💕",
+            "Itna bhaaw khaayegi !!! 🙏",
+            "Haan bol kissi dunga 🥰",
+            "Aur kuch to maang nahi rha chal haan bol! 💔",
+            "Mujhe haan sunna hai! 😤",
+            "Mujhe pata hai aakhir mein tu pighal jaayegi! 😊",
+            "Jyada nakhre nahi smjhii! 💖"
+         ],
+         2: [
+            "Humari yaadein nahi dekhni tujhe? 🥺",
+            "Arey wo photos bhut pyaari hain! 📸",
+            "Mann toh tera bhi kar rha hai! 😊",
+            "Bas ek jhalak dekh le na? 👀",
+            "Dekh kar smile aa jayegi face pe! 😄",
+            "Yaadein mithai ke dibbe ki tarah hoti hain! 💕",
+            "Promise, tujhe pasand aayegi! ✨",
+            "Sharma mat, YES click kar! 🎀",
+            "Bhaaw mat kha, dekh le chup chap! 💝"
+         ],
+         3: [
+            "Mujhe pata hai tujhe yaad hai! 🤔",
+            "Wo video dekh ke pet dukha tha hass ke! 😂",
+            "Bhulakkad, kaise bhool sakti hai? 😄",
+            "Hum dono paagalon ki tarah hase the! 🎬",
+            "Chal na, yaad karte hain! 💭",
+            "Tera favourite video hai wo! 🎥",
+            "Dimaag pe zor daal Nehu! 😊",
+            "Natak mat kar, sab yaad hai tujhe! 💕"
+         ],
+         4: [
+            "Nahi jaan na maine kya likha hai? 💌",
+            "Dil nikaal ke rakh diya hai kagaz pe! 💕",
+            "Padh le na Nehu, plijjj! 🥺",
+            "Bahut special hai yaar! ✨",
+            "Tujhe pakka pasand aayega! 💝",
+            "Mere dil ki feeling hai isme! 💖",
+            "Aatma se likha hai maine! 📝",
+            "Aise latka mat mujhe! 🙏"
+         ],
+         5: [
+            "Music hi toh pyaar ki bhasha hai! 🎵",
+            "Ye gaana sunke teri yaad aati hai! 💕",
+            "Sun le na Nehu! 🥺",
+            "Ye humara anthem hai! 🎶",
+            "Bajne de music! 🎼",
+            "Isme mera pyaar feel hoga tujhe! 💖",
+            "Kaan laga ke sun zara! 🎧",
+            "Sirf tere liye hai ye! ✨"
+         ]
+      };
+
+      let messageIndexes = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+
+      // Generate floating hearts
+      function createHearts() {
+         const container = document.getElementById('heartsContainer');
+         for (let i = 0; i < 15; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            heart.style.animationDuration = (Math.random() * 5 + 8) + 's';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            container.appendChild(heart);
+         }
+      }
+
+      // Setup No button behavior for each screen
+      function setupNoButton(screenNum) {
+         const noBtn = document.getElementById(`noBtn${screenNum}`);
+         const messageEl = document.getElementById(`message${screenNum}`);
+         let lastMoveTime = 0;
+         const moveDelay = 300; // milliseconds between moves
+
+         function showMessage() {
+            const messageList = messages[screenNum];
+            const message = messageList[messageIndexes[screenNum]];
+            messageEl.textContent = message;
+            messageEl.style.animation = 'none';
+            setTimeout(() => messageEl.style.animation = 'messagePopIn 0.3s', 10);
+            messageIndexes[screenNum] = (messageIndexes[screenNum] + 1) % messageList.length;
+         }
+
+         function moveButton(e) {
+            const now = Date.now();
+            if (now - lastMoveTime < moveDelay) return;
+            lastMoveTime = now;
+
+            showMessage();
+
+            // Get card position and size
+            const card = document.querySelector('.card');
+            const cardRect = card.getBoundingClientRect();
+            const cardCenterX = cardRect.left + cardRect.width / 2;
+            const cardCenterY = cardRect.top + cardRect.height / 2;
+
+            // Define movement area around the card
+            const moveRadius = 250; // Button can move 250px away from card center
+
+            // Generate random position within the circular area around card
+            const angle = Math.random() * Math.PI * 2;
+            const distance = Math.random() * moveRadius;
+            const newX = cardCenterX + Math.cos(angle) * distance - noBtn.offsetWidth / 2;
+            const newY = cardCenterY + Math.sin(angle) * distance - noBtn.offsetHeight / 2;
+
+            // Make sure button stays on screen
+            const safeX = Math.max(10, Math.min(newX, window.innerWidth - noBtn.offsetWidth - 10));
+            const safeY = Math.max(10, Math.min(newY, window.innerHeight - noBtn.offsetHeight - 10));
+
+            noBtn.style.left = safeX + 'px';
+            noBtn.style.top = safeY + 'px';
+         }
+
+         function checkProximityAndMove(e) {
+            const rect = noBtn.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            const mouseX = e.clientX || e.touches?.[0]?.clientX;
+            const mouseY = e.clientY || e.touches?.[0]?.clientY;
+
+            if (!mouseX || !mouseY) return;
+
+            const distance = Math.sqrt(
+               Math.pow(centerX - mouseX, 2) + Math.pow(centerY - mouseY, 2)
+            );
+
+            // If cursor is within 100px of button, move it away
+            if (distance < 100) {
+               moveButton(e);
+            }
+         }
+
+         // Mouse move listener
+         document.addEventListener('mousemove', checkProximityAndMove);
+         document.addEventListener('touchmove', checkProximityAndMove);
+
+         // Direct interactions
+         noBtn.addEventListener('mouseenter', moveButton);
+         noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveButton(e);
+         });
+         noBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            moveButton(e);
+         });
+
+         // Initial position
+         const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+         const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+         noBtn.style.left = (maxX * 0.3) + 'px';
+         noBtn.style.top = (maxY * 0.7) + 'px';
+      }
+
+      // Setup all no buttons
+      for (let i = 1; i <= 5; i++) {
+         setupNoButton(i);
+      }
+
+      // Next screen function
+      function nextScreen(currentScreen) {
+         const current = document.getElementById(`screen${currentScreen}`);
+         current.classList.add('hide');
+
+         if (currentScreen === 5) {
+            // Last screen - show main content
+            setTimeout(() => {
+               const mainContent = document.getElementById('mainContent');
+               mainContent.classList.add('show');
+               createHearts();
+               document.getElementById('musicControl').style.display = 'flex';
+               // Auto-play music
+               setTimeout(() => {
+                  const music = document.getElementById('backgroundMusic');
+                  music.play().catch(e => console.log('Music autoplay prevented'));
+                  document.getElementById('musicControl').classList.add('playing');
+                  isPlaying = true;
+               }, 500);
+            }, 500);
+         } else {
+            // Show next screen
+            setTimeout(() => {
+               const next = document.getElementById(`screen${currentScreen + 1}`);
+               next.style.display = 'flex';
+               setTimeout(() => next.classList.remove('hide'), 10);
+            }, 500);
+         }
+      }
+
+      // Music control
+      let isPlaying = false;
+      function toggleMusic() {
+         const music = document.getElementById('backgroundMusic');
+         const control = document.getElementById('musicControl');
+
+         if (isPlaying) {
+            music.pause();
+            control.classList.remove('playing');
+         } else {
+            music.play();
+            control.classList.add('playing');
+         }
+         isPlaying = !isPlaying;
+      }
+
+      // Initialize
+      createHearts();
+   </script>
