@@ -1,891 +1,946 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>For Nehu ❤️</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
+   <meta charset="UTF-8">
+   <title>For Nehu ❤️</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+      * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+      }
 
-body {
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-overflow-x: hidden;
-background: #000;
-}
+      body {
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         overflow-x: hidden;
+         background: #000;
+      }
 
-/* Floating Hearts Background */
-.hearts-bg {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-pointer-events: none;
-z-index: 1;
-overflow: hidden;
-}
+      /* Floating Hearts Background */
+      .hearts-bg {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         pointer-events: none;
+         z-index: 1;
+         overflow: hidden;
+      }
 
-.heart {
-position: absolute;
-font-size: 20px;
-color: rgba(255, 77, 109, 0.6);
-animation: float 10s infinite;
-}
+      .heart {
+         position: absolute;
+         font-size: 20px;
+         color: rgba(255, 77, 109, 0.6);
+         animation: float 10s infinite;
+      }
 
-@keyframes float {
-0% {
-transform: translateY(100vh) rotate(0deg);
-opacity: 0;
-}
-10% {
-opacity: 1;
-}
-90% {
-opacity: 1;
-}
-100% {
-transform: translateY(-100vh) rotate(360deg);
-opacity: 0;
-}
-}
+      @keyframes float {
+         0% {
+            transform: translateY(100vh) rotate(0deg);
+            opacity: 0;
+         }
 
-/* Interactive Screen (for all yes/no questions) */
-.interactive-screen {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100vh;
-background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
-display: flex;
-justify-content: center;
-align-items: center;
-z-index: 1000;
-transition: opacity 0.5s, transform 0.5s;
-}
+         10% {
+            opacity: 1;
+         }
 
-.interactive-screen.hide {
-opacity: 0;
-transform: scale(0.8);
-pointer-events: none;
-}
+         90% {
+            opacity: 1;
+         }
 
-.card {
-background: white;
-padding: 40px 30px;
-border-radius: 25px;
-text-align: center;
-box-shadow: 0 15px 50px rgba(0,0,0,0.3);
-width: 90%;
-max-width: 450px;
-position: relative;
-animation: cardPulse 2s infinite;
-}
+         100% {
+            transform: translateY(-100vh) rotate(360deg);
+            opacity: 0;
+         }
+      }
 
-@keyframes cardPulse {
-0%, 100% { transform: scale(1); }
-50% { transform: scale(1.02); }
-}
+      /* Interactive Screen (for all yes/no questions) */
+      .interactive-screen {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100vh;
+         background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         z-index: 1000;
+         transition: opacity 0.5s, transform 0.5s;
+      }
 
-.card h1 {
-color: #ff4d6d;
-margin-bottom: 20px;
-font-size: 26px;
-line-height: 1.4;
-}
+      .interactive-screen.hide {
+         opacity: 0;
+         transform: scale(0.8);
+         pointer-events: none;
+      }
 
-.card p {
-color: #666;
-margin-bottom: 30px;
-font-size: 16px;
-line-height: 1.6;
-}
+      .card {
+         background: white;
+         padding: 40px 30px;
+         border-radius: 25px;
+         text-align: center;
+         box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+         width: 90%;
+         max-width: 450px;
+         position: relative;
+         animation: cardPulse 2s infinite;
+      }
 
-.cute-message {
-color: #ff4d6d;
-font-weight: bold;
-font-size: 18px;
-margin-bottom: 25px;
-min-height: 30px;
-animation: messagePopIn 0.3s;
-}
+      @keyframes cardPulse {
 
-@keyframes messagePopIn {
-0% { transform: scale(0.8); opacity: 0; }
-100% { transform: scale(1); opacity: 1; }
-}
+         0%,
+         100% {
+            transform: scale(1);
+         }
 
-.button-container {
-display: flex;
-gap: 15px;
-justify-content: center;
-flex-wrap: wrap;
-position: relative;
-min-height: 60px;
-}
+         50% {
+            transform: scale(1.02);
+         }
+      }
 
-button {
-padding: 15px 30px;
-font-size: 18px;
-border: none;
-border-radius: 30px;
-cursor: pointer;
-transition: all 0.3s;
-font-weight: bold;
-}
+      .card h1 {
+         color: #ff4d6d;
+         margin-bottom: 20px;
+         font-size: 26px;
+         line-height: 1.4;
+      }
 
-.yes {
-background: linear-gradient(135deg, #ff4d6d, #ff758c);
-color: white;
-box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
-z-index: 10;
-}
+      .card p {
+         color: #666;
+         margin-bottom: 30px;
+         font-size: 16px;
+         line-height: 1.6;
+      }
 
-.yes:hover {
-transform: translateY(-2px);
-box-shadow: 0 8px 20px rgba(255, 77, 109, 0.6);
-}
+      .cute-message {
+         color: #ff4d6d;
+         font-weight: bold;
+         font-size: 18px;
+         margin-bottom: 25px;
+         min-height: 30px;
+         animation: messagePopIn 0.3s;
+      }
 
-.no {
-background: #ddd;
-position: fixed;
-transition: all 0.2s ease;
-z-index: 5;
-}
+      @keyframes messagePopIn {
+         0% {
+            transform: scale(0.8);
+            opacity: 0;
+         }
 
-.no:hover {
-background: #ccc;
-}
+         100% {
+            transform: scale(1);
+            opacity: 1;
+         }
+      }
 
-/* Main Content */
-.main-content {
-display: none;
-min-height: 100vh;
-background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-position: relative;
-z-index: 2;
-}
+      .button-container {
+         display: flex;
+         gap: 15px;
+         justify-content: center;
+         flex-wrap: wrap;
+         position: relative;
+         min-height: 60px;
+      }
 
-.main-content.show {
-display: block;
-animation: fadeIn 1s;
-}
+      button {
+         padding: 15px 30px;
+         font-size: 18px;
+         border: none;
+         border-radius: 30px;
+         cursor: pointer;
+         transition: all 0.3s;
+         font-weight: bold;
+      }
 
-@keyframes fadeIn {
-from { opacity: 0; }
-to { opacity: 1; }
-}
+      .yes {
+         background: linear-gradient(135deg, #ff4d6d, #ff758c);
+         color: white;
+         box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+         z-index: 10;
+      }
 
-/* Header Section */
-.header {
-text-align: center;
-padding: 60px 20px 40px;
-color: white;
-}
+      .yes:hover {
+         transform: translateY(-2px);
+         box-shadow: 0 8px 20px rgba(255, 77, 109, 0.6);
+      }
 
-.header h1 {
-font-size: 48px;
-margin-bottom: 10px;
-background: linear-gradient(135deg, #ff9a9e, #fad0c4);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-animation: glow 2s ease-in-out infinite;
-}
+      .no {
+         background: #ddd;
+         position: fixed;
+         transition: all 0.2s ease;
+         z-index: 5;
+      }
 
-@keyframes glow {
-0%, 100% { filter: brightness(1); }
-50% { filter: brightness(1.3); }
-}
+      .no:hover {
+         background: #ccc;
+      }
 
-.header p {
-font-size: 20px;
-color: #fad0c4;
-margin-top: 10px;
-}
+      /* Main Content */
+      .main-content {
+         display: none;
+         min-height: 100vh;
+         background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+         position: relative;
+         z-index: 2;
+      }
 
-.date-badge {
-display: inline-block;
-background: rgba(255, 154, 158, 0.2);
-padding: 10px 25px;
-border-radius: 20px;
-margin-top: 20px;
-border: 2px solid rgba(255, 154, 158, 0.4);
-}
+      .main-content.show {
+         display: block;
+         animation: fadeIn 1s;
+      }
 
-/* Timeline Section */
-.timeline {
-max-width: 800px;
-margin: 0 auto;
-padding: 40px 20px;
-}
+      @keyframes fadeIn {
+         from {
+            opacity: 0;
+         }
 
-.timeline-item {
-display: flex;
-gap: 30px;
-margin-bottom: 60px;
-opacity: 0;
-animation: slideIn 0.8s forwards;
-}
+         to {
+            opacity: 1;
+         }
+      }
 
-.timeline-item:nth-child(even) {
-flex-direction: row-reverse;
-}
+      /* Header Section */
+      .header {
+         text-align: center;
+         padding: 60px 20px 40px;
+         color: white;
+      }
 
-@keyframes slideIn {
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
+      .header h1 {
+         font-size: 48px;
+         margin-bottom: 10px;
+         background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+         animation: glow 2s ease-in-out infinite;
+      }
 
-.timeline-item {
-transform: translateY(30px);
-}
+      @keyframes glow {
 
-.timeline-date {
-flex-shrink: 0;
-width: 120px;
-text-align: center;
-}
+         0%,
+         100% {
+            filter: brightness(1);
+         }
 
-.timeline-date .date-circle {
-width: 80px;
-height: 80px;
-background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-font-weight: bold;
-color: white;
-margin: 0 auto 10px;
-box-shadow: 0 5px 20px rgba(255, 154, 158, 0.4);
-}
+         50% {
+            filter: brightness(1.3);
+         }
+      }
 
-.timeline-date p {
-color: #fad0c4;
-font-size: 14px;
-}
+      .header p {
+         font-size: 20px;
+         color: #fad0c4;
+         margin-top: 10px;
+      }
 
-.timeline-content {
-background: rgba(255, 255, 255, 0.05);
-backdrop-filter: blur(10px);
-padding: 25px;
-border-radius: 20px;
-flex: 1;
-border: 1px solid rgba(255, 154, 158, 0.2);
-transition: all 0.3s;
-}
+      .date-badge {
+         display: inline-block;
+         background: rgba(255, 154, 158, 0.2);
+         padding: 10px 25px;
+         border-radius: 20px;
+         margin-top: 20px;
+         border: 2px solid rgba(255, 154, 158, 0.4);
+      }
 
-.timeline-content:hover {
-transform: translateY(-5px);
-box-shadow: 0 10px 30px rgba(255, 154, 158, 0.3);
-border-color: rgba(255, 154, 158, 0.5);
-}
+      /* Timeline Section */
+      .timeline {
+         max-width: 800px;
+         margin: 0 auto;
+         padding: 40px 20px;
+      }
 
-.timeline-content h3 {
-color: #ff9a9e;
-margin-bottom: 15px;
-font-size: 22px;
-}
+      .timeline-item {
+         display: flex;
+         gap: 30px;
+         margin-bottom: 60px;
+         opacity: 0;
+         animation: slideIn 0.8s forwards;
+      }
 
-.timeline-content p {
-color: #e0e0e0;
-line-height: 1.6;
-margin-bottom: 15px;
-}
+      .timeline-item:nth-child(even) {
+         flex-direction: row-reverse;
+      }
 
-/* Photo Gallery */
-.photo-gallery {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-gap: 15px;
-margin-top: 20px;
-}
+      @keyframes slideIn {
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
 
-.photo-placeholder {
-width: 100%;
-aspect-ratio: 1;
-background: linear-gradient(135deg, rgba(255, 154, 158, 0.3), rgba(250, 208, 196, 0.3));
-border-radius: 15px;
-display: flex;
-align-items: center;
-justify-content: center;
-color: #fad0c4;
-font-size: 14px;
-text-align: center;
-padding: 10px;
-border: 2px dashed rgba(255, 154, 158, 0.4);
-transition: all 0.3s;
-cursor: pointer;
-}
+      .timeline-item {
+         transform: translateY(30px);
+      }
 
-.photo-placeholder:hover {
-transform: scale(1.05);
-border-color: rgba(255, 154, 158, 0.8);
-}
+      .timeline-date {
+         flex-shrink: 0;
+         width: 120px;
+         text-align: center;
+      }
 
-.photo-placeholder img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-border-radius: 13px;
-}
+      .timeline-date .date-circle {
+         width: 80px;
+         height: 80px;
+         background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-weight: bold;
+         color: white;
+         margin: 0 auto 10px;
+         box-shadow: 0 5px 20px rgba(255, 154, 158, 0.4);
+      }
 
-/* Message Section */
-.message-section {
-max-width: 700px;
-margin: 60px auto;
-padding: 40px 20px;
-text-align: center;
-}
+      .timeline-date p {
+         color: #fad0c4;
+         font-size: 14px;
+      }
 
-.love-letter {
-background: rgba(255, 255, 255, 0.95);
-padding: 40px;
-border-radius: 20px;
-box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
-position: relative;
-}
+      .timeline-content {
+         background: rgba(255, 255, 255, 0.05);
+         backdrop-filter: blur(10px);
+         padding: 25px;
+         border-radius: 20px;
+         flex: 1;
+         border: 1px solid rgba(255, 154, 158, 0.2);
+         transition: all 0.3s;
+      }
 
-.love-letter::before {
-content: '💕';
-position: absolute;
-top: -20px;
-left: 50%;
-transform: translateX(-50%);
-font-size: 40px;
-}
+      .timeline-content:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 10px 30px rgba(255, 154, 158, 0.3);
+         border-color: rgba(255, 154, 158, 0.5);
+      }
 
-.love-letter h2 {
-color: #ff4d6d;
-margin-bottom: 25px;
-font-size: 28px;
-}
+      .timeline-content h3 {
+         color: #ff9a9e;
+         margin-bottom: 15px;
+         font-size: 22px;
+      }
 
-.love-letter p {
-color: #333;
-line-height: 1.8;
-margin-bottom: 15px;
-font-size: 16px;
-}
+      .timeline-content p {
+         color: #e0e0e0;
+         line-height: 1.6;
+         margin-bottom: 15px;
+      }
 
-.signature {
-margin-top: 30px;
-font-style: italic;
-color: #ff4d6d;
-font-size: 20px;
-}
+      /* Photo Gallery */
+      .photo-gallery {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+         gap: 15px;
+         margin-top: 20px;
+      }
 
-/* Video Section */
-.video-section {
-max-width: 700px;
-margin: 60px auto;
-padding: 40px 20px;
-text-align: center;
-}
+      .photo-placeholder {
+         width: 100%;
+         aspect-ratio: 1;
+         background: linear-gradient(135deg, rgba(255, 154, 158, 0.3), rgba(250, 208, 196, 0.3));
+         border-radius: 15px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         color: #fad0c4;
+         font-size: 14px;
+         text-align: center;
+         padding: 10px;
+         border: 2px dashed rgba(255, 154, 158, 0.4);
+         transition: all 0.3s;
+         cursor: pointer;
+      }
 
-.video-card {
-background: rgba(255, 255, 255, 0.05);
-backdrop-filter: blur(10px);
-padding: 30px;
-border-radius: 20px;
-border: 1px solid rgba(255, 154, 158, 0.2);
-}
+      .photo-placeholder:hover {
+         transform: scale(1.05);
+         border-color: rgba(255, 154, 158, 0.8);
+      }
 
-.video-card h2 {
-color: #ff9a9e;
-margin-bottom: 20px;
-font-size: 26px;
-}
+      .photo-placeholder img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         border-radius: 13px;
+      }
 
-.video-card p {
-color: #e0e0e0;
-line-height: 1.6;
-font-size: 16px;
-}
+      /* Message Section */
+      .message-section {
+         max-width: 700px;
+         margin: 60px auto;
+         padding: 40px 20px;
+         text-align: center;
+      }
 
-/* Music Control */
-.music-control {
-position: fixed;
-bottom: 30px;
-right: 30px;
-z-index: 100;
-background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-width: 60px;
-height: 60px;
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-box-shadow: 0 5px 20px rgba(255, 77, 109, 0.4);
-transition: all 0.3s;
-}
+      .love-letter {
+         background: rgba(255, 255, 255, 0.95);
+         padding: 40px;
+         border-radius: 20px;
+         box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+         position: relative;
+      }
 
-.music-control:hover {
-transform: scale(1.1);
-}
+      .love-letter::before {
+         content: '💕';
+         position: absolute;
+         top: -20px;
+         left: 50%;
+         transform: translateX(-50%);
+         font-size: 40px;
+      }
 
-.music-control.playing {
-animation: spin 3s linear infinite;
-}
+      .love-letter h2 {
+         color: #ff4d6d;
+         margin-bottom: 25px;
+         font-size: 28px;
+      }
 
-@keyframes spin {
-from { transform: rotate(0deg); }
-to { transform: rotate(360deg); }
-}
+      .love-letter p {
+         color: #333;
+         line-height: 1.8;
+         margin-bottom: 15px;
+         font-size: 16px;
+      }
 
-.music-control::before {
-content: '🎵';
-font-size: 24px;
-}
+      .signature {
+         margin-top: 30px;
+         font-style: italic;
+         color: #ff4d6d;
+         font-size: 20px;
+      }
 
-/* Footer */
-.footer {
-text-align: center;
-padding: 40px 20px;
-color: #fad0c4;
-}
+      /* Video Section */
+      .video-section {
+         max-width: 700px;
+         margin: 60px auto;
+         padding: 40px 20px;
+         text-align: center;
+      }
 
-.footer p {
-font-size: 18px;
-margin: 10px 0;
-}
+      .video-card {
+         background: rgba(255, 255, 255, 0.05);
+         backdrop-filter: blur(10px);
+         padding: 30px;
+         border-radius: 20px;
+         border: 1px solid rgba(255, 154, 158, 0.2);
+      }
 
-/* Responsive */
-@media (max-width: 600px) {
-.header h1 {
-font-size: 36px;
-}
-.timeline-item {
-flex-direction: column !important;
-gap: 15px;
-}
-.timeline-date {
-width: 100%;
-}
-.love-letter {
-padding: 25px;
-}
-.card h1 {
-font-size: 22px;
-}
-}
-</style>
+      .video-card h2 {
+         color: #ff9a9e;
+         margin-bottom: 20px;
+         font-size: 26px;
+      }
+
+      .video-card p {
+         color: #e0e0e0;
+         line-height: 1.6;
+         font-size: 16px;
+      }
+
+      /* Music Control */
+      .music-control {
+         position: fixed;
+         bottom: 30px;
+         right: 30px;
+         z-index: 100;
+         background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+         width: 60px;
+         height: 60px;
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         cursor: pointer;
+         box-shadow: 0 5px 20px rgba(255, 77, 109, 0.4);
+         transition: all 0.3s;
+      }
+
+      .music-control:hover {
+         transform: scale(1.1);
+      }
+
+      .music-control.playing {
+         animation: spin 3s linear infinite;
+      }
+
+      @keyframes spin {
+         from {
+            transform: rotate(0deg);
+         }
+
+         to {
+            transform: rotate(360deg);
+         }
+      }
+
+      .music-control::before {
+         content: '🎵';
+         font-size: 24px;
+      }
+
+      /* Footer */
+      .footer {
+         text-align: center;
+         padding: 40px 20px;
+         color: #fad0c4;
+      }
+
+      .footer p {
+         font-size: 18px;
+         margin: 10px 0;
+      }
+
+      /* Responsive */
+      @media (max-width: 600px) {
+         .header h1 {
+            font-size: 36px;
+         }
+
+         .timeline-item {
+            flex-direction: column !important;
+            gap: 15px;
+         }
+
+         .timeline-date {
+            width: 100%;
+         }
+
+         .love-letter {
+            padding: 25px;
+         }
+
+         .card h1 {
+            font-size: 22px;
+         }
+      }
+   </style>
 </head>
+
 <body>
 
-<!-- Floating Hearts Background -->
-<div class="hearts-bg" id="heartsContainer"></div>
+   <!-- Floating Hearts Background -->
+   <div class="hearts-bg" id="heartsContainer"></div>
 
-<!-- Screen 1: Valentine Question -->
-<div class="interactive-screen" id="screen1">
-<div class="card">
-<h1>💕 Nehu, will you be my Valentine? 💕</h1>
-<p>Three years ago, on this very day, our story began...</p>
-<div class="cute-message" id="message1"></div>
-<div class="button-container">
-<button class="yes" onclick="nextScreen(1)">Yes! 💖</button>
-<button class="no" id="noBtn1">No</button>
-</div>
-</div>
-</div>
+   <!-- Screen 1: Valentine Question -->
+   <div class="interactive-screen" id="screen1">
+      <div class="card">
+         <h1>💕 Nehu, will you be my Valentine? 💕</h1>
+         <p>Three years ago, on this very day, our story began...</p>
+         <div class="cute-message" id="message1"></div>
+         <div class="button-container">
+            <button class="yes" onclick="nextScreen(1)">Yes! 💖</button>
+            <button class="no" id="noBtn1">No</button>
+         </div>
+      </div>
+   </div>
 
-<!-- Screen 2: Pictures Question -->
-<div class="interactive-screen" id="screen2" style="display: none;">
-<div class="card">
-<h1>🖼️ Do you want to see pictures from that special day?</h1>
-<p>February 4, 2023 - The day we first met ✨</p>
-<div class="cute-message" id="message2"></div>
-<div class="button-container">
-<button class="yes" onclick="nextScreen(2)">Yes! Show me! 📸</button>
-<button class="no" id="noBtn2">No</button>
-</div>
-</div>
-</div>
+   <!-- Screen 2: Pictures Question -->
+   <div class="interactive-screen" id="screen2" style="display: none;">
+      <div class="card">
+         <h1>🖼️ Do you want to see pictures from that special day?</h1>
+         <p>February 4, 2023 - The day we first met ✨</p>
+         <div class="cute-message" id="message2"></div>
+         <div class="button-container">
+            <button class="yes" onclick="nextScreen(2)">Yes! Show me! 📸</button>
+            <button class="no" id="noBtn2">No</button>
+         </div>
+      </div>
+   </div>
 
-<!-- Screen 3: Video Question -->
-<div class="interactive-screen" id="screen3" style="display: none;">
-<div class="card">
-<h1>🎬 Do you remember what video we watched together?</h1>
-<p>That made us laugh so much! 😄</p>
-<div class="cute-message" id="message3"></div>
-<div class="button-container">
-<button class="yes" onclick="nextScreen(3)">Of course! 🎥</button>
-<button class="no" id="noBtn3">No</button>
-</div>
-</div>
-</div>
+   <!-- Screen 3: Video Question -->
+   <div class="interactive-screen" id="screen3" style="display: none;">
+      <div class="card">
+         <h1>🎬 Do you remember what video we watched together?</h1>
+         <p>That made us laugh so much! 😄</p>
+         <div class="cute-message" id="message3"></div>
+         <div class="button-container">
+            <button class="yes" onclick="nextScreen(3)">Of course! 🎥</button>
+            <button class="no" id="noBtn3">No</button>
+         </div>
+      </div>
+   </div>
 
-<!-- Screen 4: Personal Message Question -->
-<div class="interactive-screen" id="screen4" style="display: none;">
-<div class="card">
-<h1>💌 I wrote something special for you...</h1>
-<p>Would you like to read what's in my heart? 💕</p>
-<div class="cute-message" id="message4"></div>
-<div class="button-container">
-<button class="yes" onclick="nextScreen(4)">Yes! I'd love to! 💝</button>
-<button class="no" id="noBtn4">No</button>
-</div>
-</div>
-</div>
+   <!-- Screen 4: Personal Message Question -->
+   <div class="interactive-screen" id="screen4" style="display: none;">
+      <div class="card">
+         <h1>💌 I wrote something special for you...</h1>
+         <p>Would you like to read what's in my heart? 💕</p>
+         <div class="cute-message" id="message4"></div>
+         <div class="button-container">
+            <button class="yes" onclick="nextScreen(4)">Yes! I'd love to! 💝</button>
+            <button class="no" id="noBtn4">No</button>
+         </div>
+      </div>
+   </div>
 
-<!-- Screen 5: Music Question -->
-<div class="interactive-screen" id="screen5" style="display: none;">
-<div class="card">
-<h1>🎵 Do you want to listen to what's in my heart for you?</h1>
-<p>A special song just for you, Nehu 💕</p>
-<div class="cute-message" id="message5"></div>
-<div class="button-container">
-<button class="yes" onclick="nextScreen(5)">Yes! Play it! 🎶</button>
-<button class="no" id="noBtn5">No</button>
-</div>
-</div>
-</div>
+   <!-- Screen 5: Music Question -->
+   <div class="interactive-screen" id="screen5" style="display: none;">
+      <div class="card">
+         <h1>🎵 Do you want to listen to what's in my heart for you?</h1>
+         <p>A special song just for you, Nehu 💕</p>
+         <div class="cute-message" id="message5"></div>
+         <div class="button-container">
+            <button class="yes" onclick="nextScreen(5)">Yes! Play it! 🎶</button>
+            <button class="no" id="noBtn5">No</button>
+         </div>
+      </div>
+   </div>
 
-<!-- Main Content -->
-<div class="main-content" id="mainContent">
-<!-- Header -->
-<div class="header">
-<h1>✨ Three Beautiful Years ✨</h1>
-<p>A Journey of Love & Memories</p>
-<div class="date-badge">
-<strong>February 4, 2023 - February 4, 2026</strong>
-</div>
-</div>
+   <!-- Main Content -->
+   <div class="main-content" id="mainContent">
+      <!-- Header -->
+      <div class="header">
+         <h1>✨ Three Beautiful Years ✨</h1>
+         <p>A Journey of Love & Memories</p>
+         <div class="date-badge">
+            <strong>February 4, 2023 - February 4, 2026</strong>
+         </div>
+      </div>
 
-<!-- Timeline -->
-<div class="timeline">
-<!-- First Meeting -->
-<div class="timeline-item" style="animation-delay: 0.2s">
-<div class="timeline-date">
-<div class="date-circle">
-<div>Feb 4<br>2023</div>
-</div>
-<p>The Beginning</p>
-</div>
-<div class="timeline-content">
-<h3>💫 When We First Met</h3>
-<p>Three years ago today, our paths crossed and my life changed forever. From the very first moment, I knew you were special, Nehu.</p>
-<div class="photo-gallery">
-<div class="photo-placeholder"><img src="https://ibb.co/1yCpxKp" alt="Feb 4, 2023"></div>
-<div class="photo-placeholder"><img src="https://ibb.co/FSCwYY9" alt="Special moment"></div>
-</div>
-</div>
-</div>
+      <!-- Timeline -->
+      <div class="timeline">
+         <!-- First Meeting -->
+         <div class="timeline-item" style="animation-delay: 0.2s">
+            <div class="timeline-date">
+               <div class="date-circle">
+                  <div>Feb 4<br>2023</div>
+               </div>
+               <p>The Beginning</p>
+            </div>
+            <div class="timeline-content">
+               <h3>💫 When We First Met</h3>
+               <p>Three years ago today, our paths crossed and my life changed forever. From the very first moment, I
+                  knew you were special, Nehu.</p>
+               <div class="photo-gallery">
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/wGnb1Cb/20230204-192630.jpg"
+                        alt="Feb 4, 2023"></div>
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/bSDBvvx/20230204-160852.jpg"
+                        alt="Special moment"></div>
+               </div>
+            </div>
+         </div>
 
-<!-- Special Memories -->
-<div class="timeline-item" style="animation-delay: 0.4s">
-<div class="timeline-date">
-<div class="date-circle">
-<div>Our<br>Journey</div>
-</div>
-<p>Memories</p>
-</div>
-<div class="timeline-content">
-<h3>🌸 Beautiful Moments Together</h3>
-<p>Every moment with you has been a treasure. From late-night conversations to shared dreams, every memory is precious.</p>
-<div class="photo-gallery">
-<div class="photo-placeholder"><img src="https://ibb.co/bMwLx2FN" alt="Favorite memory together"></div>
-<div class="photo-placeholder"><img src="https://ibb.co/mVWSrFL0" alt="A happy moment"></div>
-<div class="photo-placeholder"><img src="https://ibb.co/k2sznws9" alt="Another cherished time"></div>
-</div>
-</div>
-</div>
+         <!-- Special Memories -->
+         <div class="timeline-item" style="animation-delay: 0.4s">
+            <div class="timeline-date">
+               <div class="date-circle">
+                  <div>Our<br>Journey</div>
+               </div>
+               <p>Memories</p>
+            </div>
+            <div class="timeline-content">
+               <h3>🌸 Beautiful Moments Together</h3>
+               <p>Every moment with you has been a treasure. From late-night conversations to shared dreams, every
+                  memory is precious.</p>
+               <div class="photo-gallery">
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/TxjRZb1P/20230315-172158.jpg"
+                        alt="Favorite memory together"></div>
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/b5MYhCM2/20230615-111229.jpg"
+                        alt="A happy moment"></div>
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/b5MYhCM2/20230615-111229.jpg"
+                        alt="Another cherished time"></div>
+               </div>
+            </div>
+         </div>
 
-<!-- Today -->
-<div class="timeline-item" style="animation-delay: 0.6s">
-<div class="timeline-date">
-<div class="date-circle">
-<div>Feb 4<br>2026</div>
-</div>
-<p>Today</p>
-</div>
-<div class="timeline-content">
-<h3>💖 Three Years Strong</h3>
-<p>Here we are, three years later, and my love for you only grows stronger with each passing day. Thank you for being you, Nehu.</p>
-<div class="photo-gallery">
-<div class="photo-placeholder"><img src="https://ibb.co/spHxyX1Y" alt="Another cherished time"></div>
-<div class="photo-placeholder"><img src="https://ibb.co/GQQKqtWL" alt="Your smile that lights up my world"></div>
-</div>
-</div>
-</div>
-</div>
+         <!-- Today -->
+         <div class="timeline-item" style="animation-delay: 0.6s">
+            <div class="timeline-date">
+               <div class="date-circle">
+                  <div>Feb 4<br>2026</div>
+               </div>
+               <p>Today</p>
+            </div>
+            <div class="timeline-content">
+               <h3>💖 Three Years Strong</h3>
+               <p>Here we are, three years later, and my love for you only grows stronger with each passing day. Thank
+                  you for being you, Nehu.</p>
+               <div class="photo-gallery">
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/PsQXwVWH/photo-2023-11-17-19-29-56.jpg"
+                        alt="Another cherished time"></div>
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/s990Z6KG/photo-2023-11-17-23-15-51.jpg"
+                        alt="Your smile that lights up my world"></div>
+               </div>
+            </div>
+         </div>
+      </div>
 
-<!-- Video Section -->
-<div class="video-section">
-<div class="video-card">
-<h2>🎬 Remember This?</h2>
-<p>We watched "3 Idiots" and couldn't stop laughing! That was such a fun moment. Your laughter is my favorite sound in the world. 💕</p>
-       
-<!-- Video Player -->
-<div style="margin: 30px 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-<iframe 
-width="100%" 
-height="315" 
-src="https://www.youtube.com/embed/PzmNssVLcLQ" 
-title="Dil Bechara song" 
-frameborder="0" 
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen
-style="border-radius: 15px;">
-</iframe>
-</div>
+      <!-- Video Section -->
+      <div class="video-section">
+         <div class="video-card">
+            <h2>🎬 Remember This?</h2>
+            <p>We watched "3 Idiots" and couldn't stop laughing! That was such a fun moment. Your laughter is my
+               favorite sound in the world. 💕</p>
 
-<!-- Memory Photo from that Video -->
-<div style="margin-top: 30px;">
-<h3 style="color: #ff9a9e; margin-bottom: 15px; font-size: 20px;">📸 Our Moment While Watching</h3>
-<p>Umar ke saal kitne hain , Gin-Gin kr kya krna???</p>
-<p>Beet jaayein na , Ginti mein ye warna !!!!</p>
-<div class="photo-placeholder">
-<img src="https://ibb.co/GvzLfpvh/me-hiding this scene.jpg" alt="Ab main Screen pr Haath nahi rakhunga">
-</div>
-<p style="margin-top: 15px; color: #fad0c4; font-style: italic;">
-That smile on your face is everything! 💕
-</p>
-</div>
-</div>
-</div>
+            <!-- Video Player -->
+            <div
+               style="margin: 30px 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+               <iframe width="100%" height="315" src="https://www.youtube.com/embed/PzmNssVLcLQ"
+                  title="Dil Bechara song" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen style="border-radius: 15px;">
+               </iframe>
+            </div>
 
-<!-- Personal Message -->
-<div class="message-section">
-<div class="love-letter">
-<h2>My Dearest Nehu,</h2>
-<p>Three years ago, on this exact day, you walked into my life and everything changed. What started as a simple meeting has blossomed into the most beautiful journey of my life.</p>
-<p>You've brought so much joy, laughter, and love into my world. Your smile brightens my darkest days, your voice is my favorite sound, and your presence is my greatest comfort.</p>
-<p>These three years have been filled with countless memories, inside jokes, shared dreams, and moments that I'll treasure forever. Through every high and low, you've been by my side, and I'm grateful for every single moment.</p>
-<p>Thank you for being patient with me, for understanding me, for making me laugh until my stomach hurts, and for loving me just the way I am.</p>
-<p>Here's to us, to our story, and to many more beautiful years together. I love you more than words can express.</p>
-<p class="signature">Forever Yours,<br>With all my love 💕</p>
-</div>
-</div>
+            <!-- Memory Photo from that Video -->
+            <div style="margin-top: 30px;">
+               <h3 style="color: #ff9a9e; margin-bottom: 15px; font-size: 20px;">📸 Our Moment While Watching</h3>
+               <p>Umar ke saal kitne hain , Gin-Gin kr kya krna???</p>
+               <p>Beet jaayein na , Ginti mein ye warna !!!!</p>
+               <div class="photo-placeholder">
+                  <img src="https://i.ibb.co/rGDSK0GW/Screenshot-2026-02-04-200926.png"
+                     alt="Ab main Screen pr Haath nahi rakhunga">
+               </div>
+               <p style="margin-top: 15px; color: #fad0c4; font-style: italic;">
+                  That smile on your face is everything! 💕
+               </p>
+            </div>
+         </div>
+      </div>
 
-<!-- Footer -->
-<div class="footer">
-<p>✨ Happy 3rd Anniversary, Nehu! ✨</p>
-<p>💕 February 4, 2026 💕</p>
-</div>
-</div>
+      <!-- Personal Message -->
+      <div class="message-section">
+         <div class="love-letter">
+            <h2>My Dearest Nehu,</h2>
+            <p>Three years ago, on this exact day, you walked into my life and everything changed. What started as a
+               simple meeting has blossomed into the most beautiful journey of my life.</p>
+            <p>You've brought so much joy, laughter, and love into my world. Your smile brightens my darkest days, your
+               voice is my favorite sound, and your presence is my greatest comfort.</p>
+            <p>These three years have been filled with countless memories, inside jokes, shared dreams, and moments that
+               I'll treasure forever. Through every high and low, you've been by my side, and I'm grateful for every
+               single moment.</p>
+            <p>Thank you for being patient with me, for understanding me, for making me laugh until my stomach hurts,
+               and for loving me just the way I am.</p>
+            <p>Here's to us, to our story, and to many more beautiful years together. I love you more than words can
+               express.</p>
+            <p class="signature">Forever Yours,<br>With all my love 💕</p>
+         </div>
+      </div>
 
-<!-- Music Control -->
-<div class="music-control" id="musicControl" onclick="toggleMusic()" title="Click to play music" style="display: none;"></div>
+      <!-- Footer -->
+      <div class="footer">
+         <p>✨ Happy 3rd Anniversary, Nehu! ✨</p>
+         <p>💕 February 4, 2026 💕</p>
+      </div>
+   </div>
 
-<!-- Hidden Audio Element -->
-<audio id="backgroundMusic" loop>
-<source src="your-song.mp3" type="audio/mpeg">
-</audio>
+   <!-- Music Control -->
+   <div class="music-control" id="musicControl" onclick="toggleMusic()" title="Click to play music"
+      style="display: none;"></div>
 
-<script>
-// Cute messages for each screen
-const messages = {
-1: [
-"Please don't say no!!! 🥺",
-"Are you sure? Think again! 💭",
-"You can't reject me!!! 😢",
-"Come on, Nehu! Say yes! 💕",
-"At least now say yes!!! 🙏",
-"Pretty please? 🥰",
-"My heart will break! 💔",
-"I'm not giving up! 😤",
-"You know you want to say yes! 😊",
-"Just click yes, Nehu! 💖"
-],
-2: [
-"Don't you want to see our memories? 🥺",
-"Come on, those pictures are beautiful! 📸",
-"I know you want to see them! 😊",
-"Please? Just a peek? 👀",
-"They'll make you smile! 😄",
-"Our memories are precious! 💕",
-"You'll love them, I promise! ✨",
-"Don't be shy, click yes! 🎀",
-"These are our special moments! 💝"
-],
-3: [
-"I know you remember! 🤔",
-"That video was hilarious! 😂",
-"How can you forget? 😄",
-"It made us both laugh so much! 🎬",
-"Come on, remember it with me! 💭",
-"You loved that video! 🎥",
-"Think harder, Nehu! 😊",
-"Of course you remember! 💕"
-],
-4: [
-"Don't you want to know what I wrote? 💌",
-"I poured my heart out! 💕",
-"Please read it, Nehu! 🥺",
-"It's really special! ✨",
-"You'll love it, I promise! 💝",
-"Open your heart to my words! 💖",
-"This is from my soul! 📝",
-"Don't leave me hanging! 🙏"
-],
-5: [
-"Music is the language of love! 🎵",
-"This song reminds me of you! 💕",
-"Please listen, Nehu! 🥺",
-"It's our song! 🎶",
-"Let the music play! 🎼",
-"You'll feel my love through this! 💖",
-"Don't you want to hear it? 🎧",
-"This is special for you! ✨"
-]
-};
+   <!-- Hidden Audio Element -->
+   <audio id="backgroundMusic" loop>
+      <source src="your-song.mp3" type="audio/mpeg">
+   </audio>
 
-let messageIndexes = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0};
+   <script>
+      // Cute messages for each screen
+      const messages = {
+         1: [
+            "Please don't say no!!! 🥺",
+            "Are you sure? Think again! 💭",
+            "You can't reject me!!! 😢",
+            "Come on, Nehu! Say yes! 💕",
+            "At least now say yes!!! 🙏",
+            "Pretty please? 🥰",
+            "My heart will break! 💔",
+            "I'm not giving up! 😤",
+            "You know you want to say yes! 😊",
+            "Just click yes, Nehu! 💖"
+         ],
+         2: [
+            "Don't you want to see our memories? 🥺",
+            "Come on, those pictures are beautiful! 📸",
+            "I know you want to see them! 😊",
+            "Please? Just a peek? 👀",
+            "They'll make you smile! 😄",
+            "Our memories are precious! 💕",
+            "You'll love them, I promise! ✨",
+            "Don't be shy, click yes! 🎀",
+            "These are our special moments! 💝"
+         ],
+         3: [
+            "I know you remember! 🤔",
+            "That video was hilarious! 😂",
+            "How can you forget? 😄",
+            "It made us both laugh so much! 🎬",
+            "Come on, remember it with me! 💭",
+            "You loved that video! 🎥",
+            "Think harder, Nehu! 😊",
+            "Of course you remember! 💕"
+         ],
+         4: [
+            "Don't you want to know what I wrote? 💌",
+            "I poured my heart out! 💕",
+            "Please read it, Nehu! 🥺",
+            "It's really special! ✨",
+            "You'll love it, I promise! 💝",
+            "Open your heart to my words! 💖",
+            "This is from my soul! 📝",
+            "Don't leave me hanging! 🙏"
+         ],
+         5: [
+            "Music is the language of love! 🎵",
+            "This song reminds me of you! 💕",
+            "Please listen, Nehu! 🥺",
+            "It's our song! 🎶",
+            "Let the music play! 🎼",
+            "You'll feel my love through this! 💖",
+            "Don't you want to hear it? 🎧",
+            "This is special for you! ✨"
+         ]
+      };
 
-// Generate floating hearts
-function createHearts() {
-const container = document.getElementById('heartsContainer');
-for (let i = 0; i < 15; i++) {
-const heart = document.createElement('div');
-heart.className = 'heart';
-heart.innerHTML = '❤️';
-heart.style.left = Math.random() * 100 + '%';
-heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
-heart.style.animationDuration = (Math.random() * 5 + 8) + 's';
-heart.style.animationDelay = Math.random() * 5 + 's';
-container.appendChild(heart);
-}
-}
+      let messageIndexes = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
 
-// Setup No button behavior for each screen
-function setupNoButton(screenNum) {
-const noBtn = document.getElementById(`noBtn${screenNum}`);
-const messageEl = document.getElementById(`message${screenNum}`);
-let lastMoveTime = 0;
-const moveDelay = 300; // milliseconds between moves
+      // Generate floating hearts
+      function createHearts() {
+         const container = document.getElementById('heartsContainer');
+         for (let i = 0; i < 15; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            heart.style.animationDuration = (Math.random() * 5 + 8) + 's';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            container.appendChild(heart);
+         }
+      }
 
-function showMessage() {
-const messageList = messages[screenNum];
-const message = messageList[messageIndexes[screenNum]];
-messageEl.textContent = message;
-messageEl.style.animation = 'none';
-setTimeout(() => messageEl.style.animation = 'messagePopIn 0.3s', 10);
-messageIndexes[screenNum] = (messageIndexes[screenNum] + 1) % messageList.length;
-}
+      // Setup No button behavior for each screen
+      function setupNoButton(screenNum) {
+         const noBtn = document.getElementById(`noBtn${screenNum}`);
+         const messageEl = document.getElementById(`message${screenNum}`);
+         let lastMoveTime = 0;
+         const moveDelay = 300; // milliseconds between moves
 
-function moveButton(e) {
-const now = Date.now();
-if (now - lastMoveTime < moveDelay) return;
-lastMoveTime = now;
+         function showMessage() {
+            const messageList = messages[screenNum];
+            const message = messageList[messageIndexes[screenNum]];
+            messageEl.textContent = message;
+            messageEl.style.animation = 'none';
+            setTimeout(() => messageEl.style.animation = 'messagePopIn 0.3s', 10);
+            messageIndexes[screenNum] = (messageIndexes[screenNum] + 1) % messageList.length;
+         }
 
-showMessage();
+         function moveButton(e) {
+            const now = Date.now();
+            if (now - lastMoveTime < moveDelay) return;
+            lastMoveTime = now;
 
-const maxX = window.innerWidth - noBtn.offsetWidth - 20;
-const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+            showMessage();
 
-let newX = Math.random() * maxX;
-let newY = Math.random() * maxY;
+            const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+            const maxY = window.innerHeight - noBtn.offsetHeight - 20;
 
-noBtn.style.left = newX + 'px';
-noBtn.style.top = newY + 'px';
-}
+            let newX = Math.random() * maxX;
+            let newY = Math.random() * maxY;
 
-function checkProximityAndMove(e) {
-const rect = noBtn.getBoundingClientRect();
-const centerX = rect.left + rect.width / 2;
-const centerY = rect.top + rect.height / 2;
+            noBtn.style.left = newX + 'px';
+            noBtn.style.top = newY + 'px';
+         }
 
-const mouseX = e.clientX || e.touches?.[0]?.clientX;
-const mouseY = e.clientY || e.touches?.[0]?.clientY;
+         function checkProximityAndMove(e) {
+            const rect = noBtn.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
 
-if (!mouseX || !mouseY) return;
+            const mouseX = e.clientX || e.touches?.[0]?.clientX;
+            const mouseY = e.clientY || e.touches?.[0]?.clientY;
 
-const distance = Math.sqrt(
-Math.pow(centerX - mouseX, 2) + Math.pow(centerY - mouseY, 2)
-);
+            if (!mouseX || !mouseY) return;
 
-// If cursor is within 100px of button, move it away
-if (distance < 100) {
-moveButton(e);
-}
-}
+            const distance = Math.sqrt(
+               Math.pow(centerX - mouseX, 2) + Math.pow(centerY - mouseY, 2)
+            );
 
-// Mouse move listener
-document.addEventListener('mousemove', checkProximityAndMove);
-document.addEventListener('touchmove', checkProximityAndMove);
+            // If cursor is within 100px of button, move it away
+            if (distance < 100) {
+               moveButton(e);
+            }
+         }
 
-// Direct interactions
-noBtn.addEventListener('mouseenter', moveButton);
-noBtn.addEventListener('touchstart', (e) => {
-e.preventDefault();
-moveButton(e);
-});
-noBtn.addEventListener('click', (e) => {
-e.preventDefault();
-moveButton(e);
-});
+         // Mouse move listener
+         document.addEventListener('mousemove', checkProximityAndMove);
+         document.addEventListener('touchmove', checkProximityAndMove);
 
-// Initial position
-const maxX = window.innerWidth - noBtn.offsetWidth - 20;
-const maxY = window.innerHeight - noBtn.offsetHeight - 20;
-noBtn.style.left = (maxX * 0.3) + 'px';
-noBtn.style.top = (maxY * 0.7) + 'px';
-}
+         // Direct interactions
+         noBtn.addEventListener('mouseenter', moveButton);
+         noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveButton(e);
+         });
+         noBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            moveButton(e);
+         });
 
-// Setup all no buttons
-for (let i = 1; i <= 5; i++) {
-setupNoButton(i);
-}
+         // Initial position
+         const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+         const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+         noBtn.style.left = (maxX * 0.3) + 'px';
+         noBtn.style.top = (maxY * 0.7) + 'px';
+      }
 
-// Next screen function
-function nextScreen(currentScreen) {
-const current = document.getElementById(`screen${currentScreen}`);
-current.classList.add('hide');
+      // Setup all no buttons
+      for (let i = 1; i <= 5; i++) {
+         setupNoButton(i);
+      }
 
-if (currentScreen === 5) {
-// Last screen - show main content
-setTimeout(() => {
-const mainContent = document.getElementById('mainContent');
-mainContent.classList.add('show');
-createHearts();
-document.getElementById('musicControl').style.display = 'flex';
-// Auto-play music
-setTimeout(() => {
-const music = document.getElementById('backgroundMusic');
-music.play().catch(e => console.log('Music autoplay prevented'));
-document.getElementById('musicControl').classList.add('playing');
-isPlaying = true;
-}, 500);
-}, 500);
-} else {
-// Show next screen
-setTimeout(() => {
-const next = document.getElementById(`screen${currentScreen + 1}`);
-next.style.display = 'flex';
-setTimeout(() => next.classList.remove('hide'), 10);
-}, 500);
-}
-}
+      // Next screen function
+      function nextScreen(currentScreen) {
+         const current = document.getElementById(`screen${currentScreen}`);
+         current.classList.add('hide');
 
-// Music control
-let isPlaying = false;
-function toggleMusic() {
-const music = document.getElementById('backgroundMusic');
-const control = document.getElementById('musicControl');
+         if (currentScreen === 5) {
+            // Last screen - show main content
+            setTimeout(() => {
+               const mainContent = document.getElementById('mainContent');
+               mainContent.classList.add('show');
+               createHearts();
+               document.getElementById('musicControl').style.display = 'flex';
+               // Auto-play music
+               setTimeout(() => {
+                  const music = document.getElementById('backgroundMusic');
+                  music.play().catch(e => console.log('Music autoplay prevented'));
+                  document.getElementById('musicControl').classList.add('playing');
+                  isPlaying = true;
+               }, 500);
+            }, 500);
+         } else {
+            // Show next screen
+            setTimeout(() => {
+               const next = document.getElementById(`screen${currentScreen + 1}`);
+               next.style.display = 'flex';
+               setTimeout(() => next.classList.remove('hide'), 10);
+            }, 500);
+         }
+      }
 
-if (isPlaying) {
-music.pause();
-control.classList.remove('playing');
-} else {
-music.play();
-control.classList.add('playing');
-}
-isPlaying = !isPlaying;
-}
+      // Music control
+      let isPlaying = false;
+      function toggleMusic() {
+         const music = document.getElementById('backgroundMusic');
+         const control = document.getElementById('musicControl');
 
-// Initialize
-createHearts();
-</script>
+         if (isPlaying) {
+            music.pause();
+            control.classList.remove('playing');
+         } else {
+            music.play();
+            control.classList.add('playing');
+         }
+         isPlaying = !isPlaying;
+      }
 
-<!-- 
+      // Initialize
+      createHearts();
+   </script>
+
+   <!-- 
 INSTRUCTIONS TO CUSTOMIZE:
 
 1. PHOTOS: Replace the photo placeholders with actual images:
@@ -914,4 +969,5 @@ INSTRUCTIONS TO CUSTOMIZE:
 -->
 
 </body>
+
 </html>
