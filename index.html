@@ -411,6 +411,171 @@
          font-size: 20px;
       }
 
+      /* Image Slider Section */
+.slider-section {
+max-width: 900px;
+margin: 80px auto;
+padding: 40px 20px;
+}
+
+.slider-container {
+text-align: center;
+}
+
+.slider-container h2 {
+color: #ff9a9e;
+font-size: 32px;
+margin-bottom: 10px;
+}
+
+.image-slider {
+position: relative;
+max-width: 700px;
+margin: 0 auto;
+border-radius: 20px;
+overflow: hidden;
+background: rgba(255, 255, 255, 0.05);
+backdrop-filter: blur(10px);
+padding: 20px;
+box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.slider-wrapper {
+position: relative;
+width: 100%;
+height: 500px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.slide {
+display: none;
+width: 100%;
+height: 100%;
+animation: fadeIn 0.5s;
+}
+
+.slide.active {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.slide img {
+max-width: 100%;
+max-height: 450px;
+object-fit: contain;
+border-radius: 15px;
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.slide-caption {
+color: #fad0c4;
+font-size: 16px;
+margin-top: 15px;
+font-style: italic;
+}
+
+/* Slider Buttons */
+.slider-btn {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+color: white;
+border: none;
+padding: 15px 20px;
+font-size: 24px;
+cursor: pointer;
+border-radius: 50%;
+width: 50px;
+height: 50px;
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 10;
+transition: all 0.3s;
+box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+}
+
+.slider-btn:hover {
+transform: translateY(-50%) scale(1.1);
+box-shadow: 0 8px 20px rgba(255, 77, 109, 0.6);
+}
+
+.prev-btn {
+left: 10px;
+}
+
+.next-btn {
+right: 10px;
+}
+
+/* Slide Counter */
+.slide-counter {
+color: #fad0c4;
+font-size: 18px;
+margin-top: 20px;
+font-weight: bold;
+}
+
+.slide-counter #currentSlide {
+color: #ff9a9e;
+font-size: 22px;
+}
+
+/* Thumbnail Dots */
+.slider-dots {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin-top: 20px;
+flex-wrap: wrap;
+}
+
+.dot {
+width: 12px;
+height: 12px;
+border-radius: 50%;
+background: rgba(255, 154, 158, 0.3);
+cursor: pointer;
+transition: all 0.3s;
+}
+
+.dot.active {
+background: #ff9a9e;
+transform: scale(1.3);
+}
+
+.dot:hover {
+background: #fad0c4;
+transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+.slider-wrapper {
+height: 400px;
+}
+.slide img {
+max-height: 350px;
+}
+.slider-btn {
+width: 40px;
+height: 40px;
+font-size: 20px;
+padding: 10px;
+}
+.prev-btn {
+left: 5px;
+}
+.next-btn {
+right: 5px;
+}
+}
+
       /* Video Section */
       .video-section {
          max-width: 700px;
@@ -638,7 +803,34 @@
             <div class="timeline-content">
                <h3>🌸 Wo haseen lamhe</h3>
                <p>Tumhare saath har lamhaat moti jaisa hota hai jb saari mulaakatein dekho to zindagi kisi khoobsurat
-                  haar jaisi lagti jisme hazaaron moti chamak yaad banke chamkte hain</p>
+                  haar jaisi lagti jisme hazaaron moti yaad banke chamkte hain</p>
+               <div class="photo-gallery">
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/TxjRZb1P/20230315-172158.jpg"
+                        alt="Favorite memory together"></div>
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/6ckZG5Kf/20230814-130438.jpg"
+                        alt="Favorite memory together"></div>
+                  <div class="photo-placeholder"><img
+                        src="https://i.ibb.co/QvKG958g/photo-74-18-03-2023-16-23-37-thumb-1.jpg" alt="A happy moment">
+                  </div>
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/RTxDMfHj/photo-75-18-03-2023-16-25-31.jpg"
+                        alt="A happy moment"></div>
+                  <div class="photo-placeholder"><img src="https://i.ibb.co/b5MYhCM2/20230615-111229.jpg"
+                        alt="Another cherished time"></div>
+               </div>
+            </div>
+         </div>
+
+         <!-- Special Memories -->
+         <div class="timeline-item" style="animation-delay: 0.4s">
+            <div class="timeline-date">
+               <div class="date-circle">
+                  <div>Mera<br>Chaand</div>
+               </div>
+               <p>Intezaar tumhara</p>
+            </div>
+            <div class="timeline-content">
+               <h3>🌸 Wo Chaand ko takna</h3>
+               <p>Tujhe dekhta hoon to mera chaand nazar aata hai. Tujhe dekhne k liye mukammal koshish krna kabhi jyada nahi lagta kyuki tu to jaanti hai chaand ko dekhe bina pyaar ka vrat adhura hota hai. Tu na dikhe to saari zindagi amaawas hai nehu!!!!</p>
                <div class="photo-gallery">
                   <div class="photo-placeholder"><img src="https://i.ibb.co/TxjRZb1P/20230315-172158.jpg"
                         alt="Favorite memory together"></div>
@@ -680,6 +872,89 @@
             </div>
          </div>
       </div>
+
+      <!-- Image Slider Section -->
+<div class="slider-section">
+<div class="slider-container">
+<h2>📸 Our Beautiful Journey Together</h2>
+<p style="color: #fad0c4; margin-bottom: 30px;">Swipe through our precious memories 💕</p>
+
+<!-- Slider -->
+<div class="image-slider">
+<button class="slider-btn prev-btn" onclick="changeSlide(-1)">❮</button>
+
+<div class="slider-wrapper">
+<div class="slide active">
+<img src="https://i.ibb.co/d0Cjd1SV/photo-1670-23-05-2024-22-06-59.jpg" alt="Memory 1">
+<p class="slide-caption">Mera Chaand</p>
+</div>
+<div class="slide">
+<img src="https://i.ibb.co/S4WcWXhL/photo-2255-21-07-2024-19-18-05.jpg" alt="Memory 2">
+<p class="slide-caption">Abhi bhi salaamat rakha hai ye</p>
+</div>
+<div class="slide">
+<img src="https://i.ibb.co/1YLdpQPZ/Screenshot-2026-02-05-072436.png" alt="Memory 3">
+<p class="slide-caption">Teri galiyaan</p>
+</div>
+<div class="slide">
+<img src="https://i.ibb.co/ccBb339h/Screenshot-2026-02-05-082217.png" alt="Memory 4">
+<p class="slide-caption">Teri balcony</p>
+</div>
+<div class="slide">
+<img src="https://i.ibb.co/0RR906ky/Screenshot-2026-02-05-082127.png" alt="Memory 4">
+<p class="slide-caption">Tujhe takna</p>
+</div>
+<div class="slide">
+<img src="https://i.ibb.co/mFgDK2Fb/photo-1154-25-10-2023-19-54-57.jpg" alt="Memory 5">
+<p class="slide-caption">Hum aur Ganga</p>
+</div>
+<div class="slide">
+<img src="https://i.ibb.co/5hftd3ZK/Screenshot-20230613-004643-Whats-App.jpg" alt="Memory 6">
+<p class="slide-caption">Tujhse dhyaan kaise hataun</p>
+</div>
+<div class="slide">
+<img src="https://i.ibb.co/rGJbM7F4/Screenshot-2026-02-05-074346.png" alt="Memory 7">
+<p class="slide-caption">Raat bhr tera naam pukaarna</p>
+</div>
+<div class="slide">
+<img src="https://i.ibb.co/XfnQs4LH/Screenshot-2026-02-05-074417.png" alt="Memory 8">
+<p class="slide-caption">Tera na uthna</p>
+</div>
+<div class="slide">
+<img src="https://i.ibb.co/fVPgCcqd/Screenshot-20230827-012735-Whats-App.jpg" alt="Memory 9">
+<p class="slide-caption">Tujhe Sote huye bhi dekhna</p>
+</div>
+<div class="slide">
+<img src="https://i.ibb.co/gZ4qJFx1/Screenshot-2026-02-05-074852.png" alt="Memory 10">
+<p class="slide-caption">Tujhe pyaar ki himmat dena</p>
+</div>
+<div class="slide">
+<img src="https://i.ibb.co/v4BBb2kP/Screenshot-2026-02-05-075000.png" alt="Memory 11">
+<p class="slide-caption">Tujhe pyaar ka ahsaas karaana</p>
+</div>
+<div class="slide">
+<img src="https://i.ibb.co/wNtRFGjL/Screenshot-2026-02-05-070534.png" alt="Memory 12">
+<p class="slide-caption">Tujhe hansaana</p>
+</div>
+<div class="slide">
+<img src="https://i.ibb.co/wZsgfkpH/photo-1583-08-04-2024-21-33-36.jpg" alt="Memory 13">
+<p class="slide-caption">Khoobsurat pal</p>
+</div>
+
+</div>
+
+<button class="slider-btn next-btn" onclick="changeSlide(1)">❯</button>
+</div>
+
+<!-- Slide Counter -->
+<div class="slide-counter">
+<span id="currentSlide">1</span> / <span id="totalSlides">20</span>
+</div>
+
+<!-- Thumbnail Dots -->
+<div class="slider-dots" id="sliderDots"></div>
+</div>
+</div>
 
       <!-- Video Section -->
       <div class="video-section">
@@ -978,6 +1253,83 @@
             }, 500);
          }
       }
+      // Image Slider Functionality
+let currentSlideIndex = 0;
+
+function showSlide(index) {
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+const totalSlides = slides.length;
+
+// Wrap around
+if (index >= totalSlides) currentSlideIndex = 0;
+if (index < 0) currentSlideIndex = totalSlides - 1;
+if (index >= 0 && index < totalSlides) currentSlideIndex = index;
+
+// Hide all slides
+slides.forEach(slide => slide.classList.remove('active'));
+dots.forEach(dot => dot.classList.remove('active'));
+
+// Show current slide
+slides[currentSlideIndex].classList.add('active');
+if (dots[currentSlideIndex]) {
+dots[currentSlideIndex].classList.add('active');
+}
+
+// Update counter
+document.getElementById('currentSlide').textContent = currentSlideIndex + 1;
+}
+
+function changeSlide(direction) {
+showSlide(currentSlideIndex + direction);
+}
+
+function currentSlide(index) {
+showSlide(index);
+}
+
+// Initialize slider
+window.addEventListener('load', function() {
+const slides = document.querySelectorAll('.slide');
+const dotsContainer = document.getElementById('sliderDots');
+
+// Create dots
+slides.forEach((_, index) => {
+const dot = document.createElement('span');
+dot.className = 'dot';
+if (index === 0) dot.classList.add('active');
+dot.onclick = () => currentSlide(index);
+dotsContainer.appendChild(dot);
+});
+
+// Set total slides
+document.getElementById('totalSlides').textContent = slides.length;
+
+// Keyboard navigation
+document.addEventListener('keydown', function(e) {
+if (e.key === 'ArrowLeft') changeSlide(-1);
+if (e.key === 'ArrowRight') changeSlide(1);
+});
+
+// Touch swipe support for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+const sliderWrapper = document.querySelector('.slider-wrapper');
+sliderWrapper.addEventListener('touchstart', e => {
+touchStartX = e.changedTouches[0].screenX;
+});
+
+sliderWrapper.addEventListener('touchend', e => {
+touchEndX = e.changedTouches[0].screenX;
+handleSwipe();
+});
+
+function handleSwipe() {
+if (touchEndX < touchStartX - 50) changeSlide(1); // Swipe left
+if (touchEndX > touchStartX + 50) changeSlide(-1); // Swipe right
+}
+});
 
       // Music control
       let isPlaying = false;
